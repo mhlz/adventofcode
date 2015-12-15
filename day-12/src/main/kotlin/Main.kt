@@ -51,10 +51,10 @@ fun main(args: Array<String>) {
         }
     }
 
+    // part 1
     println(sum)
 
-    sum = 0
-
+    // part 2
     val obj = JSONObject(File("input.txt").readText())
     println(sum(obj))
 }
