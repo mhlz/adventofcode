@@ -23,11 +23,8 @@ fun calcHappiness(seating: List<Guest>): Int {
         val neighbours = listOf(seating[left], seating[right])
 
         neighbours.forEach {
-            val hap = guest.happiness[it.name]
-            if(hap == null) {
-                println()
-            }
-            sum += hap!!
+            val hap = guest.happiness[it.name]!!
+            sum += hap
         }
     }
 
