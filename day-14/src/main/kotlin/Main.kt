@@ -10,11 +10,12 @@ data class Reindeer(
         val speed: Int,
         val speedDuration: Int,
         val pauseDuration: Int,
-        var distanceTraveled: Int = 0
+        var distanceTraveled: Int = 0,
+        var points: Int = 0
 ) {
     fun doTick() {
         val timeInInterval = currentTime % (speedDuration + pauseDuration)
-        if(timeInInterval <= speedDuration) {
+        if(timeInInterval <= speedDuration && timeInInterval > 0) {
             distanceTraveled += speed
         }
     }
@@ -38,12 +39,16 @@ fun main(args: Array<String>) {
         reindeers.add(reindeer)
     }
 
-    for(i in 0..2502) {
-        currentTime = i
+    for(i in 1..2503) {
+        currentTime++
         reindeers.forEach { it.doTick() }
+
+        // part 2
+        reindeers.maxBy { it.distanceTraveled }!!.points++
     }
 
-    println(reindeers)
-
     println(reindeers.maxBy { it.distanceTraveled })
+
+    // part 2
+    println(reindeers.maxBy { it.points })
 }
