@@ -33,7 +33,6 @@ fun main(args: Array<String>) {
     var i = 100
     while(true) {
         val count = countPresents50(i)
-//        println(count)
         if(count >= 29000000) {
             println(i)
             return
